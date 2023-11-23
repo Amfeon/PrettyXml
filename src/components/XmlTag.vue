@@ -30,13 +30,14 @@ const isSelfClosing =
   !remarks.value.length;
 
 onMounted(() => {
-  console.log(childNodes.value);
+  console.log(childContents.value);
 });
 </script>
 <template>
   <div class="tag">
-    <OpenTag :name="name" :is-self-closing="isSelfClosing"/>
+    <OpenTag :name="name" :is-self-closing="isSelfClosing" :attribures="attributes"/>
     
+    <div class="tag__content" v-for="item in childContents">{{ item.nodeValue }}</div>
     <div class="tag__child">
       <XmlTag
         v-for="(childElement, index) in childElements"
@@ -53,7 +54,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
 
-  .tag__child {
+  .tag__child, .tag__content {
     padding-left: 1rem;
   }
 }
