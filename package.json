@@ -1,6 +1,6 @@
 {
   "name": "pretty-xml-vue3",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "files": ["dist"],
   "main":"./dist/pretty-xml-vue3.es.js",
   "module": "./dist/pretty-xml-vue3.umd.js",
@@ -12,6 +12,7 @@
     "./style.css": "./dist/style.css"
   },
   "private": false,
+  "keywords": ["xml", "view", "Vue3" ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
