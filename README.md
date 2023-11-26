@@ -1,19 +1,41 @@
 # PrettyXml
 
-PrettyXml is a simply xml viewer for Vue 3. 
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Pretty Xml is a simple xml viewer for Vue 3. The component formats and colors an XML document.
 
 ## Project Setup
 
 ```sh
 npm install pretty-xml-vue3 --save
 ```
+## Usage
+
+```sh
+<script setup>
+  import { PrettyXml } from 'pretty-xml-vue3';
+
+  // content: string
+  const content = '<?xml version="1.0" encoding="UTF-8"?><urlset  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">  <url>    <loc>https://example.com/news/651</loc>    <lastmod>2022-08-04T15:46:40.285Z</lastmod>  </url> <url>    <loc>https://example.com/news/650</loc>    <lastmod>2022-08-04T15:46:40.285Z</lastmod>  </url>  <url>    <loc>https://example.com/news/649</loc>    <lastmod>2022-08-04T15:46:40.285Z</lastmod>  </url></urlset>'
+
+</script>
+```
+
+```sh
+<tepmpate>
+      <PrettyXml :xml="content"/>
+</template>
+```
+## Styles
+You need manually import component's styles.
+```sh
+import "pretty-xml-vue3/style.css"
+```
+
+| css-variable            | value            |
+|-------------------------|------------------|
+| --tag-name-color        | rgb(207, 42, 42) |
+| --tag-content-color     | rgb(0, 0, 0)     |
+| --attribute-name-color  | rgb(61, 133, 35) |
+| --attribute-value-color | rgb(42, 83, 207) |
+You can redefine css variables to adapt to your design.
 
 
