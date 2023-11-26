@@ -10,10 +10,15 @@ const props = defineProps({
     <span class="attribute__value"> "{{ value }}" </span>
   </div>
 </template>
-<style scope lang="scss">
+<style lang="scss">
 .attribute{
     display: flex;
     padding: 0 5px;
-    
+    .attribute__name {
+      color: var(--attribute-name-color)
+    }
+    .attribute__value {
+      color: var(--attribute-value-color)
+    }
 }
 </style>

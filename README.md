@@ -1,6 +1,6 @@
-# simply-xml-viewer
+# PrettyXml
 
-This template should help get you started developing with Vue 3 in Vite.
+PrettyXml is a simply xml viewer for Vue 3. 
 
 ## Recommended IDE Setup
 
@@ -13,17 +13,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 ## Project Setup
 
 ```sh
-npm install
+npm install pretty-xml-vue3 --save
 ```
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```

@@ -1,6 +1,16 @@
 {
-  "name": "simply-xml-viewer",
-  "version": "0.0.0",
+  "name": "pretty-xml-vue3",
+  "version": "0.5.0",
+  "files": ["dist"],
+  "main":"./dist/pretty-xml-vue3.es.js",
+  "module": "./dist/pretty-xml-vue3.umd.js",
+  "exports":{
+    ".":{
+      "import":"./dist/pretty-xml-vue3.es.js",
+      "require": "./dist/pretty-xml-vue3.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "private": true,
   "scripts": {
     "dev": "vite",

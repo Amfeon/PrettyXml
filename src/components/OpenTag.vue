@@ -26,10 +26,12 @@ const props = defineProps({
     <span class="element__bracket--close">&gt;</span>
   </div>
 </template>
-<style scope lang="scss">
+<style lang="scss">
 .element {
-  display: flex;
+  display: inline-flex;
   flex-wrap: nowrap;
+  cursor: pointer;
+
   .element__attributes{
     display: flex;
     flex-direction: column;
@@ -37,6 +39,9 @@ const props = defineProps({
   .element__bracket--close{
     display: flex;
     align-items: flex-end;
+  }
+  .element__name, .element__bracket--close, .element__bracket{
+    color: var(--tag-name-color);
   }
 }
 </style>
