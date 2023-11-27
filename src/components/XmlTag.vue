@@ -52,6 +52,11 @@ onMounted(() => {
           :key="`e${index}`"
           :node="childElement"
         />
+        <div class="remark" v-for="(item, index) in remarks" :key="'rem' + index">
+          &lt;!--
+            <pre class="remark__content">{{ item.textContent }}</pre> --&gt;
+        </div>
+        
       </div>
       </template>
       <template v-else>
@@ -73,6 +78,14 @@ onMounted(() => {
   }
   .tag__content{
       color: var(--tag-content-color);
+  }
+}
+
+.remark{
+  padding-left: 1rem;
+  color: var(--remark-color);
+  .remark__content {
+    display: inline;
   }
 }
 </style>

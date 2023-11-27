@@ -30,12 +30,14 @@ You need manually import component's styles.
 import "pretty-xml-vue3/style.css"
 ```
 
-| css-variable            | value            |
-|-------------------------|------------------|
-| --tag-name-color        | rgb(207, 42, 42) |
-| --tag-content-color     | rgb(0, 0, 0)     |
-| --attribute-name-color  | rgb(61, 133, 35) |
-| --attribute-value-color | rgb(42, 83, 207) |
+| css-variable            | value              |
+|-------------------------|--------------------|
+| --tag-name-color        | rgb(207, 42, 42)   |
+| --tag-content-color     | rgb(0, 0, 0)       |
+| --attribute-name-color  | rgb(61, 133, 35)   |
+| --attribute-value-color | rgb(42, 83, 207)   |
+| --remark-color          | rgb(134, 134, 134) |
+
 You can redefine css variables to adapt to your design.
 
 
