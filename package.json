@@ -1,18 +1,24 @@
 {
   "name": "pretty-xml-vue3",
-  "version": "0.5.4",
-  "files": ["dist"],
-  "main":"./dist/pretty-xml-vue3.es.js",
+  "version": "0.5.5",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/pretty-xml-vue3.es.js",
   "module": "./dist/pretty-xml-vue3.umd.js",
-  "exports":{
-    ".":{
-      "import":"./dist/pretty-xml-vue3.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/pretty-xml-vue3.es.js",
       "require": "./dist/pretty-xml-vue3.umd.js"
     },
     "./style.css": "./dist/style.css"
   },
   "private": false,
-  "keywords": ["xml", "view", "Vue3" ],
+  "keywords": [
+    "xml",
+    "view",
+    "Vue3"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -27,5 +33,8 @@
     "vite": "^4.4.11",
     "vite-plugin-xml-loader": "^1.0.2"
   },
-  "repository": "https://github.com/Amfeon/PrettyXml"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amfeon/PrettyXml.git"
+  }
 }
