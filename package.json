@@ -1,6 +1,6 @@
 {
   "name": "pretty-xml-vue3",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "files": [
     "dist"
   ],
@@ -17,7 +17,8 @@
   "keywords": [
     "xml",
     "view",
-    "Vue3"
+    "Vue3",
+    "xml view"
   ],
   "scripts": {
     "dev": "vite",

@@ -5,8 +5,8 @@ const props = defineProps({
   xml: {
     type: String,
   },
-  isShort: {
-    type: Boolean,
+  options: {
+    type: Object,
   },
 });
 const xmlParser = new DOMParser();
@@ -28,6 +28,6 @@ watch(
 parseDocument(props.xml);
 </script>
 <template>
-  <XmlTag :node="rootNode" :is-short="isShort" />
+  <XmlTag :node="rootNode" :is-short="options?.shortRecord" />
 </template>
 <style scope></style>
