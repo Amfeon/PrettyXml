@@ -3,7 +3,8 @@ import { computed, onMounted, ref } from "vue";
 import CloseTag from "./CloseTag.vue";
 import OpenTag from "./OpenTag.vue"
 const props = defineProps({
-  node: String,
+  node: Element,
+  isShort: Boolean
 });
 
 const name = computed(() => props.node.nodeName);
@@ -31,24 +32,35 @@ const attributes = computed(
 
 const isOpen = ref(true)
 
+const hasJustContent = computed(()=>{
+  return !childElements.value.length && childContents.value.length
+})
+
 const isSelfClosing =
   !childElements.value.length &&
   !childContents.value.length &&
   !cdataSections.value.length &&
   !remarks.value.length;
 
+  const shortClass = computed(()=>{
+    return props.isShort && hasJustContent.value
+  })
 
 </script>
 <template>
-  <div class="tag" @click.stop="isOpen=!isOpen">
+  <div class="tag" :class="{'tag--short': shortClass}" @click.stop="isOpen=!isOpen">
     <OpenTag :name="name" :is-self-closing="isSelfClosing" :attribures="attributes"/>
       <template v-if="isOpen">
-        <div class="tag__content" v-for="(item, index) in childContents" :key="`content` + index">{{ item.nodeValue }}</div>
-      <div class="tag__child">
+          <template v-for="(item, index) in childContents" :key="`content` + index">
+            <div class="tag__content"  v-if="item.nodeValue">{{ item.nodeValue }}</div>
+          </template>
+        
+      <div v-if="childContents.length" class="tag__child">
         <XmlTag
           v-for="(childElement, index) in childElements"
           :key="`e${index}`"
           :node="childElement"
+          :is-short="isShort"
         />
         <div class="remark" v-for="(item, index) in remarks" :key="'rem' + index">
           &lt;!--
@@ -70,6 +82,9 @@ const isSelfClosing =
   display: flex;
   flex-direction: column;
   
+  &--short {
+    flex-direction: row;
+  }
 
   .tag__child, .tag__content {
     padding-left: 1rem;

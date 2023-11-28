@@ -21,9 +21,11 @@ npm install pretty-xml-vue3 --save
 
 ```sh
 <tepmpate>
-      <PrettyXml :xml="content"/>
+      <PrettyXml :xml="content" :is-short="true"/>
 </template>
 ```
+is-short - optional value, for short tags record
+
 ## Styles
 You need manually import component's styles.
 ```sh

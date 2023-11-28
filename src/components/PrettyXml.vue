@@ -1,9 +1,12 @@
 <script setup>
-import { ref, watch } from 'vue';
-import XmlTag from './XmlTag.vue';
+import { ref, watch } from "vue";
+import XmlTag from "./XmlTag.vue";
 const props = defineProps({
-  xml:{
-    type:Element
+  xml: {
+    type: String,
+  },
+  isShort: {
+    type: Boolean,
   },
 });
 const xmlParser = new DOMParser();
@@ -25,6 +28,6 @@ watch(
 parseDocument(props.xml);
 </script>
 <template>
-  <XmlTag :node="rootNode"/>  
+  <XmlTag :node="rootNode" :is-short="isShort" />
 </template>
 <style scope></style>

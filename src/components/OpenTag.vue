@@ -40,6 +40,9 @@ const props = defineProps({
     display: flex;
     align-items: flex-end;
   }
+  .element__name{
+    padding-left: 0.1rem;
+  }
   .element__name, .element__bracket--close, .element__bracket{
     color: var(--tag-name-color);
   }

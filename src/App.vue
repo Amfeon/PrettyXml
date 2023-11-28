@@ -10,7 +10,7 @@ const xml = ref(TEST)
 </script>
 
 <template>
-  <PrettyXml :xml="xml"/>
+  <PrettyXml :xml="xml" :is-short="true"/>
 </template>
 
 <style scoped>
