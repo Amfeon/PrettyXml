@@ -3,7 +3,7 @@ import { computed, onMounted, ref } from "vue";
 import CloseTag from "./CloseTag.vue";
 import OpenTag from "./OpenTag.vue"
 const props = defineProps({
-  node: Element,
+  node: String,
 });
 
 const name = computed(() => props.node.nodeName);
@@ -37,9 +37,7 @@ const isSelfClosing =
   !cdataSections.value.length &&
   !remarks.value.length;
 
-onMounted(() => {
-  console.log(childContents.value);
-});
+
 </script>
 <template>
   <div class="tag" @click.stop="isOpen=!isOpen">
