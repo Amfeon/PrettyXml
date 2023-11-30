@@ -7,6 +7,7 @@ const props = defineProps({
   isShort: Boolean,
 });
 
+console.log(props.node);
 const name = computed(() => props.node.nodeName);
 const childNodes = computed(() => Array.from(props.node.childNodes));
 
@@ -64,7 +65,7 @@ const shortClass = computed(() => {
         </div>
       </template>
 
-      <div v-if="childContents.length" class="tag__child">
+      <div  class="tag__child">
         <XmlTag
           v-for="(childElement, index) in childElements"
           :key="`e${index}`"
@@ -80,7 +81,7 @@ const shortClass = computed(() => {
           <pre class="remark__content">{{ item.textContent }}</pre>
           --&gt;
         </div>
-      </div>
+      </div>      
     </template>
     <template v-else>
       <div class="tag__content">...</div>
