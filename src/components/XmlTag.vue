@@ -51,12 +51,12 @@ const shortClass = computed(() => {
   <div
     class="tag"
     :class="{ 'tag--short': shortClass }"
-    @click.stop="isOpen = !isOpen"
   >
     <OpenTag
       :name="name"
       :is-self-closing="isSelfClosing"
       :attribures="attributes"
+      @open-close="isOpen = !isOpen"
     />
     <template v-if="isOpen">
       <template v-for="(item, index) in childContents" :key="`content` + index">

@@ -1,6 +1,7 @@
 <script setup>
 import AttributesComponent from './AttributesComponent.vue';
 
+defineEmits(['openClose'])
 const props = defineProps({
   attribures:{
     type: Array
@@ -17,9 +18,9 @@ const props = defineProps({
 <template>
   <div class="element">
     <span class="element__bracket">&lt;</span>
-    <span class="element__name"> {{ name }}</span>
+    <span class="element__name" @click="$emit('openClose')"> {{ name }}</span>
     <div class="element__attributes">
-      <AttributesComponent v-for="item in attribures" :name="item.name" :value="item.value" />
+      <AttributesComponent v-for="(item, index) in attribures" :name="item.name" :value="item.value" :key="'attr' + index"/>
     </div>
     
     <span v-if="isSelfClosing" class="element__bracket">/</span>
@@ -30,7 +31,7 @@ const props = defineProps({
 .element {
   display: inline-flex;
   flex-wrap: nowrap;
-  cursor: pointer;
+
 
   .element__attributes{
     display: flex;
@@ -42,6 +43,7 @@ const props = defineProps({
   }
   .element__name{
     padding-left: 0.1rem;
+    cursor: pointer;
   }
   .element__name, .element__bracket--close, .element__bracket{
     color: var(--tag-name-color);
