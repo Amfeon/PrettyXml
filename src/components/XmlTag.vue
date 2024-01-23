@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { computed,  ref } from "vue";
 import CloseTag from "./CloseTag.vue";
 import OpenTag from "./OpenTag.vue";
 const props = defineProps({
@@ -7,7 +7,7 @@ const props = defineProps({
   isShort: Boolean,
 });
 
-console.log(props.node);
+
 const name = computed(() => props.node.nodeName);
 const childNodes = computed(() => Array.from(props.node.childNodes));
 
