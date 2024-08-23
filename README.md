@@ -1,4 +1,4 @@
-# PrettyXml
+# Pretty Xml for Vu3 
 
 Pretty Xml is a simple xml viewer for Vue 3. The component formats and colors an XML document.
 
