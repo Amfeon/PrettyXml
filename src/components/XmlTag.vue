@@ -84,10 +84,10 @@ const shortClass = computed(() => {
       </div>      
     </template>
     <template v-else>
-      <div class="tag__content">...</div>
+      <div v-if="!isSelfClosing" class="tag__content">...</div>
     </template>
 
-    <CloseTag :name="name" />
+    <CloseTag v-if="!isSelfClosing" :name="name" />
   </div>
 </template>
 <style lang="scss">
