@@ -8,8 +8,9 @@ import { resolve } from "path";
 // https://vitejs.dev/config/
 
 const isGP_Build = process.env.APP_ENV === 'gp'
-
+const publicPath = isGP_Build ? '/PrettyXml' : ''
 export default defineConfig({
+  publicPath,
   plugins: [
     vue(),
     XMLLoader(),
