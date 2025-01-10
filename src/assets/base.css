@@ -1,8 +1,0 @@
-/* color palette from <https://github.com/vuejs/theme> */
-:root {
-  --attribute-name-color: rgb(61, 133, 35);
-  --attribute-value-color: rgb(42, 83, 207);
-  --tag-name-color: rgb(207, 42, 42);
-  --tag-content-color: #000;
-  --remark-color: rgb(134, 134, 134);
-}
