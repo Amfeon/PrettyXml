@@ -20,7 +20,7 @@ npm install pretty-xml-vue3 --save
 ```
 
 ```sh
-<tepmpate>
+<template>
       <PrettyXml :xml="content" :options="{shortRecord:true}"/>
 </template>
 ```

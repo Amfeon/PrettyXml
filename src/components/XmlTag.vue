@@ -65,7 +65,7 @@ const shortClass = computed(() => {
         </div>
       </template>
 
-      <div  class="tag__child">
+      <div  class="tag__child" v-if="childElements.length">
         <XmlTag
           v-for="(childElement, index) in childElements"
           :key="`e${index}`"
@@ -75,8 +75,7 @@ const shortClass = computed(() => {
         <div
           class="remark"
           v-for="(item, index) in remarks"
-          :key="'rem' + index"
-        >
+          :key="'rem' + index">
           &lt;!--
           <pre class="remark__content">{{ item.textContent }}</pre>
           --&gt;
@@ -103,7 +102,7 @@ const shortClass = computed(() => {
     flex-direction: row;
     .tag__child,
     .tag__content {
-      padding-left: 0rem;
+      padding: 0 0.1em;
     }
   }
 

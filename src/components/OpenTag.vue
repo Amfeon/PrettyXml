@@ -1,10 +1,10 @@
 <script setup>
-import AttributesComponent from './AttributesComponent.vue';
+import AttributesComponent from "./AttributesComponent.vue";
 
-defineEmits(['openClose'])
+defineEmits(["openClose"]);
 const props = defineProps({
-  attribures:{
-    type: Array
+  attribures: {
+    type: Array,
   },
   isSelfClosing: {
     type: Boolean,
@@ -20,11 +20,17 @@ const props = defineProps({
     <span class="element__bracket">&lt;</span>
     <span class="element__name" @click="$emit('openClose')"> {{ name }}</span>
     <div class="element__attributes">
-      <AttributesComponent v-for="(item, index) in attribures" :name="item.name" :value="item.value" :key="'attr' + index"/>
+      <AttributesComponent
+        v-for="(item, index) in attribures"
+        :name="item.name"
+        :value="item.value"
+        :key="'attr' + index"
+        :is-last="index === attribures.length - 1"
+        :is-self-closing="isSelfClosing"
+      />
     </div>
-    
     <span v-if="isSelfClosing" class="element__bracket">/</span>
-    <span class="element__bracket--close">&gt;</span>
+    <span v-if="!attribures.length" class="element__bracket--close">&gt;</span>
   </div>
 </template>
 <style lang="scss">
@@ -32,20 +38,21 @@ const props = defineProps({
   display: inline-flex;
   flex-wrap: nowrap;
 
-
-  .element__attributes{
+  .element__attributes {
     display: flex;
     flex-direction: column;
   }
-  .element__bracket--close{
+  .element__bracket--close {
     display: flex;
     align-items: flex-end;
   }
-  .element__name{
+  .element__name {
     padding-left: 0.1rem;
     cursor: pointer;
   }
-  .element__name, .element__bracket--close, .element__bracket{
+  .element__name,
+  .element__bracket--close,
+  .element__bracket {
     color: var(--tag-name-color);
   }
 }
