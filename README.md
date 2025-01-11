@@ -2,6 +2,10 @@
 
 Pretty XML is a simple XML viewer for Vue 3. The component formats and colors an XML document. You can reveal and hide the contents of tags. If you want to use Pretty XML in Nuxt, you should wrap it in `ClientOnly`.
 
+## Demo
+https://amfeon.github.io/PrettyXml/
+
+
 ## Project Setup
 
 ```sh

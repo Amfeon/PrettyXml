@@ -1,12 +1,11 @@
 <script setup>
-import { computed,  ref } from "vue";
+import { computed, ref } from "vue";
 import CloseTag from "./CloseTag.vue";
 import OpenTag from "./OpenTag.vue";
 const props = defineProps({
   node: Element,
   isShort: Boolean,
 });
-
 
 const name = computed(() => props.node.nodeName);
 const childNodes = computed(() => Array.from(props.node.childNodes));
@@ -48,10 +47,7 @@ const shortClass = computed(() => {
 });
 </script>
 <template>
-  <div
-    class="tag"
-    :class="{ 'tag--short': shortClass }"
-  >
+  <div class="tag" :class="{ 'tag--short': shortClass, 'tag--close': !isOpen }">
     <OpenTag
       :name="name"
       :is-self-closing="isSelfClosing"
@@ -65,7 +61,7 @@ const shortClass = computed(() => {
         </div>
       </template>
 
-      <div  class="tag__child" v-if="childElements.length">
+      <div class="tag__child" v-if="childElements.length">
         <XmlTag
           v-for="(childElement, index) in childElements"
           :key="`e${index}`"
@@ -75,12 +71,13 @@ const shortClass = computed(() => {
         <div
           class="remark"
           v-for="(item, index) in remarks"
-          :key="'rem' + index">
+          :key="'rem' + index"
+        >
           &lt;!--
           <pre class="remark__content">{{ item.textContent }}</pre>
           --&gt;
         </div>
-      </div>      
+      </div>
     </template>
     <template v-else>
       <div v-if="!isSelfClosing" class="tag__content">...</div>
@@ -98,6 +95,12 @@ const shortClass = computed(() => {
   .tag__content {
     padding-left: 1rem;
   }
+  &--close {
+    flex-direction: row;
+    .tag__content {
+      padding: 0 ;
+    }
+  }
   &--short {
     flex-direction: row;
     .tag__child,
@@ -106,6 +109,7 @@ const shortClass = computed(() => {
     }
   }
 
+  
 
   .tag__content {
     color: var(--tag-content-color);
