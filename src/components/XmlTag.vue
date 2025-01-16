@@ -52,6 +52,7 @@ const shortClass = computed(() => {
       :name="name"
       :is-self-closing="isSelfClosing"
       :attribures="attributes"
+      :is-attributes-hide="!isOpen"
       @open-close="isOpen = !isOpen"
     />
     <template v-if="isOpen">
@@ -91,6 +92,7 @@ const shortClass = computed(() => {
   width: 100%;
   display: flex;
   flex-direction: column;
+
   .tag__child,
   .tag__content {
     padding-left: 1rem;
@@ -98,7 +100,7 @@ const shortClass = computed(() => {
   &--close {
     flex-direction: row;
     .tag__content {
-      padding: 0 ;
+      padding: 0;
     }
   }
   &--short {
@@ -108,8 +110,6 @@ const shortClass = computed(() => {
       padding: 0 0.1em;
     }
   }
-
-  
 
   .tag__content {
     color: var(--tag-content-color);

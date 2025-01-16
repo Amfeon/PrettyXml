@@ -13,13 +13,17 @@ const props = defineProps({
   name: {
     type: String,
   },
+  isAttributesHide: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 <template>
   <div class="element">
     <span class="element__bracket">&lt;</span>
     <span class="element__name" @click="$emit('openClose')"> {{ name }}</span>
-    <div class="element__attributes">
+    <div class="element__attributes" v-if="!isAttributesHide">
       <AttributesComponent
         v-for="(item, index) in attribures"
         :name="item.name"
@@ -29,6 +33,9 @@ const props = defineProps({
         :is-self-closing="isSelfClosing"
       />
     </div>
+    <span v-else-if="attribures.length" class="element__bracket--close"
+      >&gt;</span
+    >
     <span v-if="isSelfClosing" class="element__bracket">/</span>
     <span v-if="!attribures.length" class="element__bracket--close">&gt;</span>
   </div>
@@ -37,7 +44,7 @@ const props = defineProps({
 .element {
   display: inline-flex;
   flex-wrap: nowrap;
-
+  height: fit-content;
   .element__attributes {
     display: flex;
     flex-direction: column;
