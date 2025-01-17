@@ -53,6 +53,8 @@ const shortClass = computed(() => {
       :is-self-closing="isSelfClosing"
       :attribures="attributes"
       :is-attributes-hide="!isOpen"
+      :have-children="!!childElements.length"
+      :is-open="isOpen"
       @open-close="isOpen = !isOpen"
     />
     <template v-if="isOpen">

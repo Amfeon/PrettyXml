@@ -45,6 +45,7 @@ import "pretty-xml-vue3/style.css"
 | --attribute-name-color  | rgb(61, 133, 35)   |
 | --attribute-value-color | rgb(42, 83, 207)   |
 | --remark-color          | rgb(134, 134, 134) |
+| --caret-name-color      | rgb(134, 134, 134) | 
 
 You can redefine css variables to adapt to your design.
 
