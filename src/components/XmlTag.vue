@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import CloseTag from "./CloseTag.vue";
 import OpenTag from "./OpenTag.vue";
+import PrettyXml from "./PrettyXml.vue";
 const props = defineProps({
   node: Element,
   isShort: Boolean,
@@ -59,7 +60,12 @@ const shortClass = computed(() => {
     />
     <template v-if="isOpen">
       <template v-for="(item, index) in childContents" :key="`content` + index">
-        <div class="tag__content" v-if="item.nodeValue">
+        <PrettyXml
+          v-if="item.nodeValue && item.nodeValue.startsWith('<?xml')"
+          :xml="item.nodeValue"
+          :options="{ shortRecord: props.isShort }"
+        />
+        <div v-else-if="item.nodeValue" class="tag__content">
           {{ item.nodeValue }}
         </div>
       </template>
